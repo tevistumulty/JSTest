@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!--
+	This is not REALLY Hands On Project 5-1, but rather an improvision illustrating
+	how JavaScript uses the DOM
+   -->
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Hands-on Project DOM</title>
+</head>
+
+<body>
+	<h1>
+      Hands-on Project DOM
+	</h1>
+	<form id="Form1">
+		<a name="html">HTML Tutorial</a><br />
+		<a name="css">CSS Tutorial</a><br />
+		<a name="xml">XML Tutorial</a><br />
+		<a name="js" href="/js/">JavaScript Tutorial</a>
+	</form>
+
+	<form id="Form2">
+		First Name: <input type="text" name="fname" value="[Enter FN]" /><br />
+		Last Name: <input type="text" name="lname" value="[Enter LN]" /><br />
+	</form>
+
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+
+	<script>
+		var BR = "<br/>"; 	//variable representing <br/>
+		var HR = "<hr>"; //Same thing, but for <hr>
+	
+	
+		document.write("Output example: " + BR + HR);
+		document.write("Old page title: ");
+		document.write(document.title + BR);
+		document.title = "New Title";
+		document.write(document.anchors.length + BR);
+		document.anchors[1].innerHTML = "Some New Link";
+		
+		document.write(document.forms[1].name + HR);
+		document.write(document.domain + BR);
+		document.write(document.URL + BR);
+	
+		document.write(HR);
+	
+		var x = document.getElementById("Form2");
+		alert(x.length);
+		for (var i = 0; i < x.length; i++) {
+			document.write(x.elements[i].value);
+			document.write(BR);
+		}
+		
+		/*
+		NOTE: This will not work with Form1 because its children are not 
+		form components, such as <input...>.  
+		*/
+		
+		
+		var w = window.open();
+		
+		w.document.open();
+		w.document.write("<h1>Hello there!</h1>");
+		//w.document.close();
+		
+	
+	</script>
+
+
+</body>
+</html>
