@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!--
+      JavaScript 6th Edition
+      Chapter 2
+      Hands-on Project 2-1
+
+      Author:In Class
+      Date:   8/29/2022
+
+      Filename: index.htm
+   -->
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+   <title>Hands-on Project 2-1</title>
+   <link rel="stylesheet" href="styles.css" />
+   <script src="modernizr.custom.05819.js"></script>
+</head>
+
+<body>
+   <header>
+      <h1>
+         Hands-on Project 2-1
+      </h1>
+   </header>
+
+   <article>
+      <h2>Fahrenheit (&#176; F) to Celsius (&#176; C) converter</h2>
+      <form>
+          <fieldset>
+            <label for="fValue">
+              Enter temp in &#176; F
+            </label>
+            <input type="number" id="fValue" />
+          </fieldset>
+          <fieldset>
+            <button type="button" id="button">
+				Convert to &#176; C</button>
+          </fieldset>
+          <fieldset>
+             <p>Temp in &#176; C</p>
+            <p id="cValue">&nbsp;</p>
+			<!--
+			Including the id property is critical here
+			because this is how we will find this particular
+			paragraph in our JS code
+			-->
+			
+          </fieldset>
+     </form>
+   </article>
+   
+   <script>
+		//alert(1);
+   
+		function convert() {
+			//alert(2);
+			//This is a named function (called "convert")
+			//Currently it has no parameters
+			
+			//Remember document.write(X) from Chapter 1?
+
+			//getElementById returns the ENTIRE object
+			//that has the id value passed in as an argument
+			var degF = document.getElementById("fValue").value;
+			//getElementById returns 1 object IF the id exists
+			//or nothing/null if the id doesn't exist
+			//.value returns JUST the string enterred into 
+			//the input by the user (or something else)
+			//NOTE: .value refers to a PROPERTY (not a function)
+			//and we know this because there are no ()
+			//NOTE 2: There is also a function called
+			//getElementsByName that returns 1 or more objects
+			//based on the name property
+		
+			//Quick test to make sure function is getting data
+			//alert(degF);
+			
+			var degC = (degF - 32)*(5 / 9);
+			document.getElementById("cValue").innerHTML = degC;
+			//Remember that cValue is a <p>, not an <input>.
+			//Paragraphs have an "innerHTML" property, which
+			//is the content between <p> </p>
+			
+		
+		}//end convert() function
+
+		//Test call to the function
+		//convert();
+		
+		//The following line(s) are NOT part of the convert function
+		//alert(3);
+		
+		//Associate the button click with calling the function
+		//by adding an event handler
+		document.getElementById("button").
+			addEventListener("click", convert, false);
+		//This event listener "listens" for the "button"
+		//object to get "click"ed, and responds by calling
+		//the convert function
+		   
+   </script>
+   
+   
+</body>
+</html>
